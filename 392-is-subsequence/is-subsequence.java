@@ -1,8 +1,8 @@
 class Solution {
     public boolean isSubsequence(String s, String t) {
 
-        if(s.length() == 0) return true;
-        if(t.length() == 0) return false;
+        // if(s.length() == 0) return true;
+        // if(t.length() == 0) return false;
         // char[] s_char = s.toCharArray();
         // char[] t_char = t.toCharArray();
 
