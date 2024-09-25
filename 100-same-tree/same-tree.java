@@ -1,12 +1,11 @@
 class Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
-        return preorder(p).equals(preorder(q));
-    }
-
-    public String preorder(TreeNode node) {
-        if (node == null) {
-            return "null,";
+        if (p == null && q == null) {
+            return true;
         }
-        return node.val + "," + preorder(node.left) + preorder(node.right);
+        if (p == null || q == null || p.val != q.val) {
+            return false;
+        }
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
 }
