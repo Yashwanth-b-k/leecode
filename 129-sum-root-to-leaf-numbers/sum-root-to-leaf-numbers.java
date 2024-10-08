@@ -1,25 +1,30 @@
-
-
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
     public int sumNumbers(TreeNode root) {
-        return dfs(root, 0); // Start DFS with initial number as 0
+        return dfs(root, 0);
     }
 
-    // Modify dfs to take the current number as an argument
-    private int dfs(TreeNode root, int currentNumber) {
-        if (root == null) {
-            return 0; // Return 0 for null nodes
-        }
+    int dfs(TreeNode root, int sum){
+        if(root == null) return 0;
 
-        // Update the current number by appending the root's value
-        currentNumber = currentNumber * 10 + root.val;
+        sum = sum *10 + root.val;
 
-        // Check if it's a leaf node
-        if (root.left == null && root.right == null) {
-            return currentNumber; // Return the current number if leaf
-        }
+        if(root.left == null && root.right == null) return sum;
 
-        // Recurse on left and right children and sum their results
-        return dfs(root.left, currentNumber) + dfs(root.right, currentNumber);
+        return (dfs(root.left,sum)+dfs(root.right,sum));
     }
 }
